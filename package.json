@@ -1,0 +1,26 @@
+{
+  "name": "@avaion/cli",
+  "version": "0.0.1",
+  "description": "Javascript helper object that simplifies building a cli tool in Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thompsgr/cli.git"
+  },
+  "keywords": [
+    "javascript",
+    "cli"
+  ],
+  "author": "Geoff Thompson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thompsgr/cli/issues"
+  },
+  "homepage": "https://github.com/thompsgr/cli#readme",
+  "devDependencies": {
+    "mocha": "^7.1.1"
+  }
+}
