@@ -1,5 +1,7 @@
+// pull in package json to get version/description info
 var pkg = require("./package.json");
 
+// cli iife
 var cli = (function () {
 
   // local variables
