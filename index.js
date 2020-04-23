@@ -19,7 +19,7 @@ var cli = (function () {
   options.push({ name: '--help', alias: '-h', value: '<none>', desc: 'Get help' });
   options.push({ name: '--version', alias: '-v', value: '<none>', desc: 'Get version' });
 
-  // setters for descriptive info name, title, desc 
+  // configuration setters - descriptive info name, title, desc 
   function name(to) {
     _name = to;
     return me;
@@ -33,12 +33,13 @@ var cli = (function () {
     return me;
   }
 
-  // number of files to expect on the command line
+  // configuration setter - number of files to expect on the command line
   function files(count) {
     _file_count = count;
     return me;
   }
 
+  // configure and parse a flag at the same time
   function flag(name, alias=name.substr(0,1), desc = 'No help available') {
     let opt = { name: `--${name}`, alias: `-${alias}`, value: '<none>', desc: desc };
     options.push(opt);
@@ -53,6 +54,7 @@ var cli = (function () {
     return me;
   }
 
+  // configure and parse a param at the same time
   function param(name, alias=name.substr(0,1), def = false, desc = 'No help available') {
     let v = (def === false) ? '<value>' : `<'${def}'>`;
     var opt = { name: `--${name}`, alias: `-${alias}`, value: v, desc: desc };
@@ -68,6 +70,7 @@ var cli = (function () {
     return me;
   }
 
+  // formats help -- only invokable using the -h or --help flags
   function help() {
     console.log(`\n${_name} - ${_title}\n\n${_desc}\n\nParameters:`);
     if (_file_count > 0) {
@@ -80,9 +83,10 @@ var cli = (function () {
     return me;
   }
 
+  // ready the params and call the user-defined callback
   function ready(cb) {
 
-    // respond to help and version requests
+    // respond to internally managed flags
     if (args.findIndex(function(el) { return el === '-v' || el === '--version' }) != -1) {
       console.log(pkg.version);
       return me;
