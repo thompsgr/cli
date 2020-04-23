@@ -1,6 +1,6 @@
 {
   "name": "@avaion/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Javascript helper object that simplifies building a cli tool in Node",
   "main": "index.js",
   "scripts": {
